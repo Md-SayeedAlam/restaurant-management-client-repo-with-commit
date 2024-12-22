@@ -44,7 +44,7 @@ const Login = () => {
   .then(result=>{
     toast.success('login successful' ,{position: "top-center",
       autoClose: 2000,})
-    // navigate(location?.state ? location.state : "/");
+    navigate(location?.state ? location.state : "/");
     navigate('/')
   })
   .catch(err=>{

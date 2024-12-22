@@ -1,14 +1,69 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddFoodItem = () => {
     const {user} = useContext(AuthContext)
+
+
+    const handleSubmit =e=>{
+        e.preventDefault()
+        const form = e.target;
+    const name = form.displayName.value;
+    const email= form.email.value;
+    const quantity = form.quantity.value;
+    const price = form.price.value;
+    const origin = form.origin.value;
+    const category = form.category.value;
+    const description = form.description.value;
+    const photo = form.photo.value;
+    
+    
+    const itemName = form.itemName.value;
+
+
+    const newItem = {name,email,itemName,quantity,category,photo,price,origin,description }
+    console.log(newItem)
+
+    fetch('http://localhost:5000/foods',{
+        method:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(newItem)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data)
+        if(data.insertedId){
+            Swal.fire({
+                title:'SUCCESS',
+                text:'Food Item added successfully',
+                icon:'success',
+                confirmButtonText:'Close'
+            })
+            form.reset()
+        }
+    })
+
+
+
+    }
+
+
+
+
+
+
+
+
+
     return (
         <div className="bg-[#F4F3F0] p-24">
       <h2 className="text-3xl font-extrabold">Add Sports Equipment</h2>
 
       <form 
-    //   onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
       >
         {/* form name and email row */}
         <div className="mb-8">

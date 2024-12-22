@@ -16,6 +16,7 @@ import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
 import Register from './Pages/Register.jsx';
 import AllFoods from './Pages/AllFoods.jsx';
 import AddFoodItem from './Pages/AddFoodItem.jsx';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
       
       {
         path:'/add-item',
-        element:<AddFoodItem></AddFoodItem>
+        element:<PrivateRoute><AddFoodItem></AddFoodItem></PrivateRoute>
       },
       
     ],
