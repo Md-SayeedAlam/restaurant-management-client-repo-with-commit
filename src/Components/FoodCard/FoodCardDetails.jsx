@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 
 const FoodCardDetails = () => {
@@ -9,15 +9,17 @@ const FoodCardDetails = () => {
     return (
         <div className="flex justify-center items-center">
         <div className="card bg-base-100 w-[800px] shadow-xl mt-10 mb-10 justify-center items-center">
+        
           <figure>
             <img
               className="rounded-md w-[400px] h-[250px]"
               src={photo}
               alt="image"
             />
+            
           </figure>
           <div className="card-body justify-center items-center">
-            <h2 className="card-title text-3xl">{itemName}</h2>
+            <h2 className="card-title text-3xl">{itemName} </h2>
             <p className="font-semibold text-gray-400">
               <span className="font-semibold text-gray-600">Item Name</span>:{" "}
               {itemName}
@@ -50,6 +52,10 @@ const FoodCardDetails = () => {
             <span className="font-semibold text-gray-600">Origin: </span>{" "}
               {origin}
             </p>
+          </div>
+          <div className='flex items-center gap-2 mb-2'>
+            <Link to='/foodPurchase'><button className='btn btn-sm bg-amber-400'>Purchase</button></Link>
+          <p className='p-2 text-amber-600'>Purchase Count : 0</p>
           </div>
         </div>
   

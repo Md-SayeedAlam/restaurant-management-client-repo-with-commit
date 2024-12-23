@@ -8,7 +8,7 @@ import chef from '../../../public/chef.jpeg'
 
 const Home = () => {
    const foods = useLoaderData()
-   console.log(foods)
+  //  console.log(foods)
   
 
    
