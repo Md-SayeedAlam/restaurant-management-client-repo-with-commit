@@ -19,7 +19,7 @@ const Banner = () => {
           <p className="mb-5  text-white">
             Where Food And Hospitality Become One
           </p>
-          <Link to='/all-foods'><button  className="btn bg-amber-400">All Foods</button></Link>
+          <Link to='/all-foods'><button  className="btn bg-amber-400 text-white">All Foods</button></Link>
         </div>
       </div>
     </div>

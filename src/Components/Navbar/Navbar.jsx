@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import logo from '../../../public/logo.jpg'
 
 const Navbar = () => {
   const {user,signOutUser} = useContext(AuthContext)
@@ -55,7 +56,8 @@ const Navbar = () => {
             {list}
           </ul>
         </div>
-        <a className=" btn-sm lg:btn lg:btn-ghost  lg:text-xl text-sm">Restaurant Management</a>
+        <img src={logo} className="w-10 rounded-full" alt="" />
+        <a className=" btn-sm lg:btn lg:btn-ghost  lg:text-xl text-sm"><span className="text-amber-500">Nova</span> Restaurant</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

@@ -17,6 +17,7 @@ import Register from './Pages/Register.jsx';
 import AllFoods from './Pages/AllFoods.jsx';
 import AddFoodItem from './Pages/AddFoodItem.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
+import FoodCardDetails from './Components/FoodCard/FoodCardDetails.jsx';
 
 
 const router = createBrowserRouter([
@@ -27,7 +28,8 @@ const router = createBrowserRouter([
     children: [
       {
         path:'/',
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader:()=>fetch('http://localhost:5000/foods')
       },
       {
         path:'/login',
@@ -46,6 +48,11 @@ const router = createBrowserRouter([
       {
         path:'/add-item',
         element:<PrivateRoute><AddFoodItem></AddFoodItem></PrivateRoute>
+      },
+      {
+        path:'/foods/:id',
+        element:<PrivateRoute><FoodCardDetails></FoodCardDetails></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
       },
       
     ],
