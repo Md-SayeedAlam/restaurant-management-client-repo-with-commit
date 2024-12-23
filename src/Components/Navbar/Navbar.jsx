@@ -4,6 +4,9 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import logo from '../../../public/logo.jpg'
+import Theme from "../../Pages/Theme";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const Navbar = () => {
   const {user,signOutUser} = useContext(AuthContext)
@@ -30,7 +33,11 @@ const Navbar = () => {
   }
 
   return (
+
     <div className="navbar bg-base-200">
+      <Tooltip anchorSelect=".my-anchor-element" place="top">
+        Click It For Change Theme
+      </Tooltip>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -71,7 +78,7 @@ const Navbar = () => {
       {
         user?
          <>
-          
+          <Theme></Theme>
       <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
@@ -104,6 +111,7 @@ const Navbar = () => {
         </>
         :
         <>
+        <Theme></Theme>
         <Link to='/login' className="btn-sm btn btn-neutral lg:btn lg:btn-neutral">Login</Link>
         </>
       }

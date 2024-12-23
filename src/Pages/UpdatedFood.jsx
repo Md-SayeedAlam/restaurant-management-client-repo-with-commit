@@ -21,9 +21,20 @@ const UpdatedFood = () => {
     const category = form.category.value;
     const description = form.description.value;
     const photo = form.photo.value;
-    
-    
-    const itemName = form.itemName.value;
+  const itemName = form.itemName.value;
+
+
+    if (user?.email !== foods.email) {
+              Swal.fire({
+                title: "Error",
+                text: "Sorry,You Are Not Real Owner Of This Item.",
+                icon: "error",
+                confirmButtonText: "Close",
+              });
+            //   form.reset()
+              return;
+              
+            }
 
 
     const newItem = {name,email,itemName,quantity,category,photo,price,origin,description }

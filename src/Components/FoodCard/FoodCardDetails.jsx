@@ -5,7 +5,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 const FoodCardDetails = () => {
   
     const foods=useLoaderData()
-    const {itemName,quantity,category,photo,price,origin,description ,name} = foods;
+    const {_id,itemName,quantity,category,photo,price,origin,description ,name} = foods;
     return (
         <div className="flex justify-center items-center">
         <div className="card bg-base-100 w-[800px] shadow-xl mt-10 mb-10 justify-center items-center">
@@ -54,7 +54,7 @@ const FoodCardDetails = () => {
             </p>
           </div>
           <div className='flex items-center gap-2 mb-2'>
-            <Link to='/foodPurchase'><button className='btn btn-sm bg-amber-400'>Purchase</button></Link>
+            <Link to={`/foodPurchase/${_id}`}><button className='btn btn-sm bg-amber-400'>Purchase</button></Link>
           <p className='p-2 text-amber-600'>Purchase Count : 0</p>
           </div>
         </div>

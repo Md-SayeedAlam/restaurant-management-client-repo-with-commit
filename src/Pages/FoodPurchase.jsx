@@ -1,20 +1,94 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import moment from 'moment';
+import { useLoaderData } from 'react-router-dom';
 
 const FoodPurchase = () => {
     const {user} = useContext(AuthContext)
+    const foods = useLoaderData()
+    const {_id,itemName,quantity,price,date,email} = foods;
+    const quantityNmb = parseInt(quantity)
+    // const [quantity, setQuantity] = useState("");
+    const [isPurchaseDisabled, setIsPurchaseDisabled] = useState(false)
+
+
+
+    // const handleQuantityChange = (e) => {
+    //     const form = e.target;
+    //     const quantity = form.quantity.value;
+
+    //   };
+
+
+
+
+
+
+
     const handleSubmit = e =>{
         e.preventDefault()
         const form = e.target;
         const name = form.displayName.value;
-        const email= form.email.value;
+        // const email= form.email.value;
         const quantity = form.quantity.value;
+        const value = parseInt(quantity);
         const price = form.price.value;
        
         const itemName = form.itemName.value;
         const date = form.date.value;
+        // console.log(value)
+
+        if (value <= 0) {
+            Swal.fire({
+              title: "Error",
+              text: "Quantity cannot be zero or less.",
+              icon: "error",
+              confirmButtonText: "Close",
+            });
+            setIsPurchaseDisabled(true);
+            return
+          } else {
+            setIsPurchaseDisabled(false);
+          }
+
+          if(value > quantityNmb){
+            Swal.fire({
+                title: "Error",
+                text: `Quantity cannot be grater than: ${quantityNmb}.`,
+                icon: "error",
+                confirmButtonText: "Close",})
+                return
+          }
+
+
+
+
+
+        if (user?.email === email) {
+            Swal.fire({
+              title: "Error",
+              text: "Sorry,Owner and Buyer person is same.",
+              icon: "error",
+              confirmButtonText: "Close",
+            });
+            form.reset()
+            return;
+            
+          }
+
+
+          
+         
+          
+      
+        
+        
+
+
+
+
+
         const newItem = {name,email,itemName,quantity,price,date }
         // console.log(newItem)
 
@@ -104,6 +178,7 @@ const FoodPurchase = () => {
                   name="itemName"
                   id=""
                   placeholder="Food Name"
+                  defaultValue={itemName} readOnly
                   className="input input-bordered w-full"
                 />
               </label>
@@ -116,10 +191,12 @@ const FoodPurchase = () => {
   
               <label className="input-group">
                 <input
+                
                   type="text"
                   name="quantity"
                   id=""
                   placeholder="Quantity"
+                  
                   className="input input-bordered w-full"
                 />
               </label>
@@ -143,6 +220,7 @@ const FoodPurchase = () => {
                   name="price"
                   id=""
                   placeholder="Price"
+                  defaultValue={price} readOnly
                   className="input input-bordered w-full"
                 />
               </label>
@@ -163,8 +241,9 @@ const FoodPurchase = () => {
                   name="date"
                   id=""
                   placeholder="Date"
+                //   defaultValue={moment(date).format("MMMM Do YYYY, h:mm:ss a")}
                   className="input input-bordered w-full"
-                //   value={moment().subtract(10, "days").calendar()} readOnly
+                //   value={moment(date).subtract(10, "days").calendar()} readOnly
                   value={new Date().toLocaleString()} readOnly
                 />
               </label>
@@ -176,6 +255,8 @@ const FoodPurchase = () => {
           <input
             type="submit"
             value="Purchase"
+            
+            disabled={isPurchaseDisabled}
             className="btn btn-block btn-neutral"
           />
         </form>
