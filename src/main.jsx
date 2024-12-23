@@ -19,6 +19,7 @@ import AddFoodItem from './Pages/AddFoodItem.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import FoodCardDetails from './Components/FoodCard/FoodCardDetails.jsx';
 import FoodPurchase from './Pages/FoodPurchase.jsx';
+import Gallery from './Pages/Gallery.jsx';
 
 
 const router = createBrowserRouter([
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
       {
         path:'/foodPurchase',
         element:<PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>,
+        
+      },
+      {
+        path:'/gallery',
+        element:<Gallery></Gallery>
         
       },
       

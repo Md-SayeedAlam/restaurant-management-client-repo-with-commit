@@ -1,10 +1,44 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const FoodPurchase = () => {
     const {user} = useContext(AuthContext)
     const handleSubmit = e =>{
         e.preventDefault()
+        const form = e.target;
+        const name = form.displayName.value;
+        const email= form.email.value;
+        const quantity = form.quantity.value;
+        const price = form.price.value;
+       
+        const itemName = form.itemName.value;
+        const date = form.date.value;
+        const newItem = {name,email,itemName,quantity,price,date }
+        // console.log(newItem)
+
+
+        
+            fetch('http://localhost:5000/purchases',{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(newItem)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+                if(data.insertedId){
+                    Swal.fire({
+                        title:'SUCCESS',
+                        text:'Food Purchased successfully',
+                        icon:'success',
+                        confirmButtonText:'Close'
+                    })
+                    form.reset()
+                }
+            })
     }
     return (
         <div className="bg-[#F4F3F0] p-24">
@@ -84,7 +118,7 @@ const FoodPurchase = () => {
                   type="text"
                   name="quantity"
                   id=""
-                  placeholder="Available Quantity"
+                  placeholder="Quantity"
                   className="input input-bordered w-full"
                 />
               </label>
