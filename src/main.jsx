@@ -20,6 +20,8 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import FoodCardDetails from './Components/FoodCard/FoodCardDetails.jsx';
 import FoodPurchase from './Pages/FoodPurchase.jsx';
 import Gallery from './Pages/Gallery.jsx';
+import MyFoods from './Pages/MyFoods.jsx';
+import UpdatedFood from './Pages/UpdatedFood.jsx';
 
 
 const router = createBrowserRouter([
@@ -65,6 +67,17 @@ const router = createBrowserRouter([
       {
         path:'/gallery',
         element:<Gallery></Gallery>
+        
+      },
+      {
+        path:'/myFoods/:email',
+        element:<PrivateRoute><MyFoods></MyFoods></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/api/foods?email=${params.email}`)
+      },
+      {
+        path:'/update/:id',
+        element:<PrivateRoute><UpdatedFood></UpdatedFood></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
         
       },
       
