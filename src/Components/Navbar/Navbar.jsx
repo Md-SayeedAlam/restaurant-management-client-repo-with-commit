@@ -90,7 +90,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li><Link to='/add-item'>Add Foods</Link></li>
-        <li><Link>My Orders</Link></li>
+        <li><Link to={`/myOrders/${user.email}`} >My Orders</Link></li>
       </ul>
     </div>
 

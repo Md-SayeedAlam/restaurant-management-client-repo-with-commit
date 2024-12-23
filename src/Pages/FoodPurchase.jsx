@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import moment from 'moment';
 
 const FoodPurchase = () => {
     const {user} = useContext(AuthContext)
@@ -163,7 +164,7 @@ const FoodPurchase = () => {
                   id=""
                   placeholder="Date"
                   className="input input-bordered w-full"
-                  
+                //   value={moment().subtract(10, "days").calendar()} readOnly
                   value={new Date().toLocaleString()} readOnly
                 />
               </label>

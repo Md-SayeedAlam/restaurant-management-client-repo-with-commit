@@ -22,6 +22,7 @@ import FoodPurchase from './Pages/FoodPurchase.jsx';
 import Gallery from './Pages/Gallery.jsx';
 import MyFoods from './Pages/MyFoods.jsx';
 import UpdatedFood from './Pages/UpdatedFood.jsx';
+import MyOrders from './Pages/MyOrders.jsx';
 
 
 const router = createBrowserRouter([
@@ -73,6 +74,11 @@ const router = createBrowserRouter([
         path:'/myFoods/:email',
         element:<PrivateRoute><MyFoods></MyFoods></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:5000/api/foods?email=${params.email}`)
+      },
+      {
+        path:'/myOrders/:email',
+        element:<PrivateRoute><MyOrders></MyOrders></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/api/purchases?email=${params.email}`)
       },
       {
         path:'/update/:id',
