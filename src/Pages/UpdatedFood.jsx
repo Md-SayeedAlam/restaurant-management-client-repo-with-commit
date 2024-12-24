@@ -3,19 +3,21 @@ import { AuthContext } from '../Components/AuthProvider/AuthProvider';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
 const UpdatedFood = () => {
 
     const {user} = useContext(AuthContext)
     const params = useParams()
-    
+    const axiosSecure = useAxiosSecure()
     // const foods = useLoaderData()
     const [foods,setFoods] = useState([])
     console.log(foods)
     const {_id,itemName,quantity,category,photo,price,origin,description } = foods
 
     useEffect(()=>{
-      axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      // axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      axiosSecure.get(`/foods/${params.id}`)
       .then(res=>setFoods(res.data))
     },[])
 

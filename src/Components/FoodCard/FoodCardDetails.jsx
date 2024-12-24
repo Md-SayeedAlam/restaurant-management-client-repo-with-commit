@@ -1,15 +1,18 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 
 const FoodCardDetails = () => {
     const params = useParams()
     // const foods = useLoaderData()
+    const axiosSecure = useAxiosSecure()
     const [foods,setFoods] = useState([])
     const {_id,itemName,quantity,category,photo,price,origin,description ,name} = foods;
     useEffect(()=>{
-      axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      // axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      axiosSecure.get(`/foods/${params.id}`)
       .then(res=>setFoods(res.data))
     },[params.id])
 

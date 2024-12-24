@@ -4,11 +4,13 @@ import Swal from 'sweetalert2';
 import moment from 'moment';
 import { useLoaderData, useParams } from 'react-router-dom';
 import axios from 'axios';
+import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
 const FoodPurchase = () => {
     const {user} = useContext(AuthContext)
     // const foods = useLoaderData()
     const params = useParams()
+    const axiosSecure = useAxiosSecure()
     const [foods,setFoods] = useState([])
     const {_id,itemName,quantity,price,date,email} = foods;
     const quantityNmb = parseInt(quantity)
@@ -16,7 +18,8 @@ const FoodPurchase = () => {
     const [isPurchaseDisabled, setIsPurchaseDisabled] = useState(false)
 
     useEffect(()=>{
-      axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      // axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      axiosSecure.get(`/foods/${params.id}`)
       .then(res=>setFoods(res.data))
     },[params.id])
 
