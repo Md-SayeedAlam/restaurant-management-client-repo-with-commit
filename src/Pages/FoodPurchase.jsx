@@ -1,26 +1,24 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import moment from 'moment';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const FoodPurchase = () => {
     const {user} = useContext(AuthContext)
-    const foods = useLoaderData()
+    // const foods = useLoaderData()
+    const params = useParams()
+    const [foods,setFoods] = useState([])
     const {_id,itemName,quantity,price,date,email} = foods;
     const quantityNmb = parseInt(quantity)
     // const [quantity, setQuantity] = useState("");
     const [isPurchaseDisabled, setIsPurchaseDisabled] = useState(false)
 
-
-
-    // const handleQuantityChange = (e) => {
-    //     const form = e.target;
-    //     const quantity = form.quantity.value;
-
-    //   };
-
-
+    useEffect(()=>{
+      axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      .then(res=>setFoods(res.data))
+    },[params.id])
 
 
 

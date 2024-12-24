@@ -1,14 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const UpdatedFood = () => {
 
     const {user} = useContext(AuthContext)
-
-    const foods = useLoaderData()
+    const params = useParams()
+    
+    // const foods = useLoaderData()
+    const [foods,setFoods] = useState([])
+    console.log(foods)
     const {_id,itemName,quantity,category,photo,price,origin,description } = foods
+
+    useEffect(()=>{
+      axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      .then(res=>setFoods(res.data))
+    },[])
 
     const handleSubmit=(e)=>{
         e.preventDefault()
@@ -63,7 +72,7 @@ const UpdatedFood = () => {
 
     return (
         <div className="bg-[#F4F3F0] p-24">
-        <h2 className="text-3xl font-extrabold text-center">Add Foods Items</h2>
+        <h2 className="text-3xl font-extrabold text-center">Update Foods Items</h2>
   
         <form 
         onSubmit={handleSubmit}

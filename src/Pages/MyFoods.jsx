@@ -1,9 +1,26 @@
-import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { AuthContext } from '../Components/AuthProvider/AuthProvider';
+import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
 const MyFoods = () => {
-    const myFood = useLoaderData();
-    const [equipment, setEquipment] = useState(myFood);
+    // const myFood = useLoaderData();
+    const [equipment, setEquipment] = useState([]);
+    const params = useParams()
+    const {user} = useContext(AuthContext)
+    const axiosSecure = useAxiosSecure()
+    useEffect(()=>{
+
+      // axios.get(`http://localhost:5000/api/foods?email=${user.email}`,{withCredentials:true})
+      axiosSecure.get(`/api/foods?email=${user.email}`)
+      .then(res=>setEquipment(res.data))
+
+
+    },[user.email])
+
+
+
     return (
         <div className="flex flex-col gap-4 justify-center items-center mt-6 bg-base-200 p-3">
   

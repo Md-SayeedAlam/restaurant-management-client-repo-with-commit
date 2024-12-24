@@ -50,6 +50,12 @@ const AuthProvider = ({children}) => {
                     setLoading(false)
                   })
                  }
+                 else{
+                    axios.post('http://localhost:5000/logout',{},{withCredentials:true})
+                  .then(res=>{
+                    console.log('logout',res.data)
+                    setLoading(false)})
+                 }
         })
         return()=>{
             unsubscribe()

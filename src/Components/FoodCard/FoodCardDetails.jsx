@@ -1,11 +1,18 @@
-import React, { useContext } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 
 const FoodCardDetails = () => {
-  
-    const foods=useLoaderData()
+    const params = useParams()
+    // const foods = useLoaderData()
+    const [foods,setFoods] = useState([])
     const {_id,itemName,quantity,category,photo,price,origin,description ,name} = foods;
+    useEffect(()=>{
+      axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      .then(res=>setFoods(res.data))
+    },[params.id])
+
     return (
         <div className="flex justify-center items-center">
         <div className="card bg-base-100 w-[800px] shadow-xl mt-10 mb-10 justify-center items-center">

@@ -1,14 +1,22 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import moment from 'moment';
+import axios from 'axios';
+import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
 const MyOrders = () => {
     const {user}= useContext(AuthContext)
-    const myOrders = useLoaderData();
+    // const myOrders = useLoaderData();
 
-    const [items,setItems] = useState(myOrders);
+    const [items,setItems] = useState([]);
+    const axiosSecure = useAxiosSecure()
+    useEffect(()=>{
+      // axios.get(`http://localhost:5000/api/purchases?email=${user.email}`,{withCredentials:true})
+      axiosSecure.get(`/api/purchases?email=${user.email}`)
+      .then(res=>setItems(res.data))
+    },[user.email])
 
 
     const handleDelete=(id)=>{
