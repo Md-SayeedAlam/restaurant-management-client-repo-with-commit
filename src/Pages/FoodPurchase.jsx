@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import moment from 'moment';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
@@ -12,7 +12,10 @@ const FoodPurchase = () => {
     const params = useParams()
     const axiosSecure = useAxiosSecure()
     const [foods,setFoods] = useState([])
-    const {_id,itemName,quantity,price,date,email} = foods;
+    
+    const {_id,itemName,quantity,price,photo,email} = foods;
+    
+    
     const quantityNmb = parseInt(quantity)
     // const [quantity, setQuantity] = useState("");
     const [isPurchaseDisabled, setIsPurchaseDisabled] = useState(false)
@@ -35,7 +38,9 @@ const FoodPurchase = () => {
         const quantity = form.quantity.value;
         const value = parseInt(quantity);
         const price = form.price.value;
-       
+        const photo = form.photo.value;
+        
+        const food_id = _id
         const itemName = form.itemName.value;
         const date = form.date.value;
         // console.log(value)
@@ -79,19 +84,9 @@ const FoodPurchase = () => {
           }
 
 
-          
-         
-          
-      
         
-        
-
-
-
-
-
-        const newItem = {name,email,itemName,quantity,price,date }
-        // console.log(newItem)
+        const newItem = {name,email,itemName,quantity,price,date,food_id,photo}
+        console.log(newItem)
 
 
         
@@ -204,12 +199,33 @@ const FoodPurchase = () => {
             </div>
           </div>
   
-
+        {/* photo */}
         
+
+        <div className="form-control  w-full mb-8">
+              <label className="label">
+                <span className="label-text">Food Image</span>
+              </label>
+  
+              <label className="input-group">
+                <input
+                  type="text"
+                  name="photo"
+                  id=""
+                  placeholder="Photo"
+                  defaultValue={photo} readOnly
+                  className="input input-bordered w-full"
+                />
+              </label>
+            </div>
+
+
+
+
 
   
          
-
+        {/* price */}
           <div className="form-control  w-full mb-8">
               <label className="label">
                 <span className="label-text">Price</span>

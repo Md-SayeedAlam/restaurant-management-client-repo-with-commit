@@ -63,7 +63,7 @@ const Register = () => {
             // console.log(user);
   
             e.target.reset();
-            toast("User Created Successfully.", {
+            toast.success("User Created Successfully.", {
               position: "top-center",
               autoClose: 2000,
             });

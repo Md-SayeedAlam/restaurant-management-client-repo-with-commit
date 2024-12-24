@@ -9,10 +9,10 @@ const FoodCardDetails = () => {
     // const foods = useLoaderData()
     const axiosSecure = useAxiosSecure()
     const [foods,setFoods] = useState([])
-    const {_id,itemName,quantity,category,photo,price,origin,description ,name} = foods;
+    const {_id,itemName,quantity,category,photo,price,origin,description ,name,purchaseCount} = foods;
     useEffect(()=>{
-      // axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
-      axiosSecure.get(`/foods/${params.id}`)
+      axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      // axiosSecure.get(`/foods/${params.id}`)
       .then(res=>setFoods(res.data))
     },[params.id])
 
@@ -51,7 +51,6 @@ const FoodCardDetails = () => {
             </p>
             <p className="text-gray-400"> <span className="font-semibold text-gray-600">Description: </span>{" "} {description}</p>
 
-           
             <p className="font-medium text-gray-400">
             <span className="font-semibold text-gray-600">Quantity: </span>{" "}
               {quantity} pcs
@@ -65,7 +64,7 @@ const FoodCardDetails = () => {
           </div>
           <div className='flex items-center gap-2 mb-2'>
             <Link to={`/foodPurchase/${_id}`}><button className='btn btn-sm bg-amber-400'>Purchase</button></Link>
-          <p className='p-2 text-amber-600'>Purchase Count : 0</p>
+          <p className='p-2 text-amber-600'>Purchase Count : {purchaseCount}</p>
           </div>
         </div>
   

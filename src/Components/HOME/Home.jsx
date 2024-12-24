@@ -1,14 +1,16 @@
 import React from 'react';
 import Banner from './Banner';
 import FoodCard from '../FoodCard/FoodCard';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import hero from '../../assets/social-kitchen-is-our.jpg'
 import chef from '../../../public/chef.jpeg'
 
 
 const Home = () => {
    const foods = useLoaderData()
-  //  console.log(foods)
+   
+  
+   console.log(foods)
   
 
    
@@ -16,12 +18,15 @@ const Home = () => {
         <div>
             <Banner></Banner>
 
-            <div className='grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4 mb-5'>
+            <div className='grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-3 gap-4 mb-5'>
             {
                 foods.slice(0, 6).map((food,idx)=><FoodCard key={idx} food={food}></FoodCard>)
             }
         </div>
 
+          <div className='text-center mt-10'>
+          <Link to='/all-foods'><button  className="btn bg-amber-400 px-8 text-white border-amber-900">Chek Our All Foods</button></Link>
+          </div>
 
         
 

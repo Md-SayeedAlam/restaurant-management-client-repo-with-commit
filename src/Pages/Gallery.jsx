@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { AuthContext } from "../Components/AuthProvider/AuthProvider";
-
+import allFood from "../../public/all food.jpeg";
 const Gallery = () => {
   const [open, setOpen] = useState(false);
 //   const [selectedImage, setSelectedImage] = useState(null);
@@ -72,9 +72,36 @@ const {user} = useContext(AuthContext)
   };
 
   return (
+    <>
+
+     <div
+            className="hero w-full h-full lg:h-[250px]"
+            style={{
+              backgroundImage: `url(${allFood})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="hero-overlay bg-opacity-60"></div>
+            <div className="hero-content text-neutral-content text-center">
+              <div className="max-w-md">
+                <h1 className="mb-5 text-5xl font-bold italic font-serif text-amber-400">
+                  <i>Foods Gallery</i>
+                </h1>
+                <p className="mb-5  text-white">Taste it...</p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-8">Gallery</h2>
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {images.map((image, idx) => (
             <div
@@ -104,6 +131,7 @@ const {user} = useContext(AuthContext)
         />
       )}
     </section>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import moment from 'moment';
@@ -8,15 +8,18 @@ import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
 const MyOrders = () => {
     const {user}= useContext(AuthContext)
-    // const myOrders = useLoaderData();
-
+    
+    // const myFoods = useLoaderData();
+    const params = useParams()
+  //  console.log(params.email)
     const [items,setItems] = useState([]);
+    console.log(items)
     const axiosSecure = useAxiosSecure()
     useEffect(()=>{
       // axios.get(`http://localhost:5000/api/purchases?email=${user.email}`,{withCredentials:true})
-      axiosSecure.get(`/api/purchases?email=${user.email}`)
+      axiosSecure.get(`/api/purchases?email=${params.email}`)
       .then(res=>setItems(res.data))
-    },[user.email])
+    },[params.email])
 
 
     const handleDelete=(id)=>{

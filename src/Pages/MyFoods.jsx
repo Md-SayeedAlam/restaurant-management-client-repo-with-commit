@@ -13,11 +13,11 @@ const MyFoods = () => {
     useEffect(()=>{
 
       // axios.get(`http://localhost:5000/api/foods?email=${user.email}`,{withCredentials:true})
-      axiosSecure.get(`/api/foods?email=${user.email}`)
+      axiosSecure.get(`/api/foods?email=${params.email}`)
       .then(res=>setEquipment(res.data))
 
 
-    },[user.email])
+    },[params.email])
 
 
 
