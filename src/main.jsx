@@ -34,8 +34,8 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-        // loader:()=>fetch('http://localhost:5000/foods')
-        loader:()=>fetch('http://localhost:5000/api/foods/top')
+        // loader:()=>fetch('https://restaurent-management-server-one.vercel.app/foods')
+        loader:()=>fetch('https://restaurent-management-server-one.vercel.app/api/foods/top')
       },
       {
         path:'/login',
@@ -60,12 +60,12 @@ const router = createBrowserRouter([
         path:'/foods/:id',
         // element:<PrivateRoute><FoodCardDetails></FoodCardDetails></PrivateRoute>,
         element:<FoodCardDetails></FoodCardDetails>,
-        // loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
+        // loader:({params})=>fetch(`https://restaurent-management-server-one.vercel.app/foods/${params.id}`)
       },
       {
         path:'/foodPurchase/:id',
         element:<PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>,
-        // loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
+        // loader:({params})=>fetch(`https://restaurent-management-server-one.vercel.app/foods/${params.id}`)
         
       },
       {
@@ -76,17 +76,17 @@ const router = createBrowserRouter([
       {
         path:'/myFoods/:email',
         element:<PrivateRoute><MyFoods></MyFoods></PrivateRoute>,
-        // loader:({params})=>fetch(`http://localhost:5000/api/foods?email=${params.email}`)
+        // loader:({params})=>fetch(`https://restaurent-management-server-one.vercel.app/api/foods?email=${params.email}`)
       },
       {
         path:'/myOrders/:email',
         element:<PrivateRoute><MyOrders></MyOrders></PrivateRoute>,
-        // loader:({params})=>fetch(`http://localhost:5000/api/purchases?email=${params.email}`)
+        // loader:({params})=>fetch(`https://restaurent-management-server-one.vercel.app/api/purchases?email=${params.email}`)
       },
       {
         path:'/update/:id',
         element:<PrivateRoute><UpdatedFood></UpdatedFood></PrivateRoute>,
-        // loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
+        // loader:({params})=>fetch(`https://restaurent-management-server-one.vercel.app/foods/${params.id}`)
         
       },
       

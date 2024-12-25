@@ -25,7 +25,7 @@ const AddFoodItem = () => {
     const newItem = {name,email,itemName,quantity,category,photo,price,origin,description }
     console.log(newItem)
 
-    fetch('http://localhost:5000/foods',{
+    fetch('https://restaurent-management-server-one.vercel.app/foods',{
         method:'POST',
         headers:{
             'content-type':'application/json'

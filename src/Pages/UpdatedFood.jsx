@@ -16,7 +16,7 @@ const UpdatedFood = () => {
     const {_id,itemName,quantity,category,photo,price,origin,description } = foods
 
     useEffect(()=>{
-      // axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      // axios.get(`https://restaurent-management-server-one.vercel.app/foods/${params.id}`,{withCredentials:true})
       axiosSecure.get(`/foods/${params.id}`)
       .then(res=>setFoods(res.data))
     },[])
@@ -49,7 +49,7 @@ const UpdatedFood = () => {
 
 
     const newItem = {name,email,itemName,quantity,category,photo,price,origin,description }
-    fetch(`http://localhost:5000/foods/${_id}`,{
+    fetch(`https://restaurent-management-server-one.vercel.app/foods/${_id}`,{
         method:'PUT',
         headers:{
             'content-type':'application/json'

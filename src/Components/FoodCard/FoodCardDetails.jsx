@@ -11,7 +11,7 @@ const FoodCardDetails = () => {
     const [foods,setFoods] = useState([])
     const {_id,itemName,quantity,category,photo,price,origin,description ,name,purchaseCount} = foods;
     useEffect(()=>{
-      axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      axios.get(`https://restaurent-management-server-one.vercel.app/foods/${params.id}`,{withCredentials:true})
       // axiosSecure.get(`/foods/${params.id}`)
       .then(res=>setFoods(res.data))
     },[params.id])

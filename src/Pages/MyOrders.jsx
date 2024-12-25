@@ -20,7 +20,7 @@ const MyOrders = () => {
     const axiosSecure = useAxiosSecure()
 
     // useEffect(()=>{
-    //   // axios.get(`http://localhost:5000/api/purchases?email=${user.email}`,{withCredentials:true})
+    //   // axios.get(`https://restaurent-management-server-one.vercel.app/api/purchases?email=${user.email}`,{withCredentials:true})
 
     //   axiosSecure.get(`/api/purchases?email=${user.email}`)
 
@@ -55,7 +55,7 @@ const MyOrders = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/purchases/${id}`, {
+                fetch(`https://restaurent-management-server-one.vercel.app/purchases/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

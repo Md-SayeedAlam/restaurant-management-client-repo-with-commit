@@ -22,7 +22,7 @@ const FoodPurchase = () => {
     const [isPurchaseDisabled, setIsPurchaseDisabled] = useState(false)
 
     useEffect(()=>{
-      // axios.get(`http://localhost:5000/foods/${params.id}`,{withCredentials:true})
+      // axios.get(`https://restaurent-management-server-one.vercel.app/foods/${params.id}`,{withCredentials:true})
       axiosSecure.get(`/foods/${params.id}`)
       .then(res=>setFoods(res.data))
     },[params.id])
@@ -91,7 +91,7 @@ const FoodPurchase = () => {
 
 
         
-            fetch('http://localhost:5000/purchases',{
+            fetch('https://restaurent-management-server-one.vercel.app/purchases',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'

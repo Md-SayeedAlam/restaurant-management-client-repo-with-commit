@@ -12,7 +12,7 @@ const MyFoods = () => {
     const axiosSecure = useAxiosSecure()
     useEffect(()=>{
 
-      // axios.get(`http://localhost:5000/api/foods?email=${user.email}`,{withCredentials:true})
+      // axios.get(`https://restaurent-management-server-one.vercel.app/api/foods?email=${user.email}`,{withCredentials:true})
       axiosSecure.get(`/api/foods?email=${params.email}`)
       .then(res=>setEquipment(res.data))
 

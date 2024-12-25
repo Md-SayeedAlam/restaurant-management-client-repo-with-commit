@@ -13,7 +13,7 @@ const AllFoods = () => {
     const foodsItem = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/foods?search=${search}`,
+          `https://restaurent-management-server-one.vercel.app/foods?search=${search}`,
           {
             method: "GET",
             headers: {
