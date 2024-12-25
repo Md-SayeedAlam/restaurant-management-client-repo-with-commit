@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
 const FoodCard = ({ food }) => {
+  useEffect(() => {
+        document.title = "Food Card || Nova Restaurant";
+      }, []);
   const {
     _id,
     itemName,

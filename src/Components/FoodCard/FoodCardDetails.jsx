@@ -5,6 +5,9 @@ import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 
 const FoodCardDetails = () => {
+  useEffect(() => {
+          document.title = "Single Food Card || Nova Restaurant";
+        }, []);
     const params = useParams()
     // const foods = useLoaderData()
     const axiosSecure = useAxiosSecure()

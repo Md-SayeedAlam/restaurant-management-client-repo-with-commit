@@ -1,9 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { AuthContext } from "../Components/AuthProvider/AuthProvider";
 import allFood from "../../public/all food.jpeg";
 const Gallery = () => {
+
+   useEffect(() => {
+              document.title = "Gallery || Nova Restaurant";
+            }, []);
+
   const [open, setOpen] = useState(false);
 //   const [selectedImage, setSelectedImage] = useState(null);
 const {user} = useContext(AuthContext)

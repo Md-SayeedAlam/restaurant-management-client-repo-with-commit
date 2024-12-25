@@ -7,6 +7,11 @@ import axios from 'axios';
 import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
 const FoodPurchase = () => {
+
+   useEffect(() => {
+              document.title = "Food Purchase || Nova Restaurant";
+            }, []);
+
     const {user} = useContext(AuthContext)
     // const foods = useLoaderData()
     const params = useParams()
@@ -87,7 +92,7 @@ const FoodPurchase = () => {
 
         
         const newItem = {name,email,itemName,quantity,price,date,food_id,photo}
-        console.log(newItem)
+        // console.log(newItem)
 
 
         
@@ -100,7 +105,7 @@ const FoodPurchase = () => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data)
+              
                 if(data.insertedId){
                     Swal.fire({
                         title:'SUCCESS',

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
@@ -6,6 +6,9 @@ import toast from 'react-hot-toast';
 
 
 const Login = () => {
+   useEffect(() => {
+              document.title = "Login || Nova Restaurant";
+            }, []);
   const navigate = useNavigate();
   const location = useLocation()
   const {signInWithGoogle,signInUSer,setUser}=useContext(AuthContext)
@@ -15,7 +18,7 @@ const Login = () => {
     const email = e.target.email.value;
         
         const password = e.target.password.value;
-        // console.log(email,password)
+      
 
         
         signInUSer(email,password)
@@ -31,7 +34,7 @@ const Login = () => {
       navigate(location?.state ? location.state  : "/");
     })
     .catch(err=>{
-      // console.log("ERROR",err.message)
+      
       toast.error(`Login failed: ${err.message}`, {
         position: "top-center",
         autoClose: 2000,

@@ -6,13 +6,16 @@ import axios from 'axios';
 import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
 const UpdatedFood = () => {
+   useEffect(() => {
+              document.title = "Update Food || Nova Restaurant";
+            }, []);
 
     const {user} = useContext(AuthContext)
     const params = useParams()
     const axiosSecure = useAxiosSecure()
     // const foods = useLoaderData()
     const [foods,setFoods] = useState([])
-    console.log(foods)
+    
     const {_id,itemName,quantity,category,photo,price,origin,description } = foods
 
     useEffect(()=>{

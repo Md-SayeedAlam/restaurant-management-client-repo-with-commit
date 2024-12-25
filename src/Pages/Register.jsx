@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,6 +8,9 @@ import toast from 'react-hot-toast';
 
 
 const Register = () => {
+   useEffect(() => {
+              document.title = "Register|| Nova Restaurant";
+            }, []);
     const navigate = useNavigate();
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);

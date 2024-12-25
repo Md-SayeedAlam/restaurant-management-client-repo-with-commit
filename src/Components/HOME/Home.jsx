@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Banner from './Banner';
 import FoodCard from '../FoodCard/FoodCard';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -7,10 +7,13 @@ import chef from '../../../public/chef.jpeg'
 
 
 const Home = () => {
+  useEffect(() => {
+            document.title = "Home || Nova Restaurant";
+          }, []);
    const foods = useLoaderData()
    
   
-   console.log(foods)
+  
   
 
    

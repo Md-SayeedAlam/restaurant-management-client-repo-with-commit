@@ -5,7 +5,10 @@ import { AuthContext } from '../Components/AuthProvider/AuthProvider';
 import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
 const MyFoods = () => {
-    // const myFood = useLoaderData();
+   useEffect(() => {
+              document.title = "My Foods || Nova Restaurant";
+            }, []);
+    
     const [equipment, setEquipment] = useState([]);
     const params = useParams()
     const {user} = useContext(AuthContext)

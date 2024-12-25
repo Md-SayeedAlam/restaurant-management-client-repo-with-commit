@@ -3,6 +3,9 @@ import allFood from "../../public/all food.jpeg";
 import FoodCard from "../Components/FoodCard/FoodCard";
 // import { useLoaderData } from 'react-router-dom';
 const AllFoods = () => {
+   useEffect(() => {
+              document.title = "All Foods || Nova Restaurant";
+            }, []);
   const [foods, setFoods] = useState([]);
   const [search, setSearch] = useState("");
  
@@ -26,9 +29,9 @@ const AllFoods = () => {
         // }
         const data = await response.json();
         setFoods(data);
-        console.log(data);
+       
       } catch (error) {
-        console.log("Error fetching foods:", error);
+        // console.log("Error fetching foods:", error);
       }
     };
 

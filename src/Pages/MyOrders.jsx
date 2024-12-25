@@ -7,15 +7,18 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
 const MyOrders = () => {
+   useEffect(() => {
+              document.title = "My Orders || Nova Restaurant";
+            }, []);
     const {user}= useContext(AuthContext)
-    console.log(user.email)
+    
     // const myFoods = useLoaderData();
-    // console.log(myFoods)
+    
     const params = useParams()
-  //  console.log(params.email)
+ 
     const [items,setItems] = useState([]);
 
-    console.log(items)
+    
 
     const axiosSecure = useAxiosSecure()
 
@@ -60,7 +63,7 @@ const MyOrders = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        
                         if (data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",

@@ -3,6 +3,11 @@ import { AuthContext } from '../Components/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const AddFoodItem = () => {
+
+   useEffect(() => {
+              document.title = "Add Food || Nova Restaurant";
+            }, []);
+
     const {user} = useContext(AuthContext)
 
 
@@ -23,7 +28,7 @@ const AddFoodItem = () => {
 
 
     const newItem = {name,email,itemName,quantity,category,photo,price,origin,description }
-    console.log(newItem)
+    
 
     fetch('https://restaurent-management-server-one.vercel.app/foods',{
         method:'POST',
@@ -34,7 +39,7 @@ const AddFoodItem = () => {
     })
     .then(res=>res.json())
     .then(data=>{
-        console.log(data)
+        
         if(data.insertedId){
             Swal.fire({
                 title:'SUCCESS',
