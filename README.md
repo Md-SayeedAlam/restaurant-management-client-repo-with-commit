@@ -4,7 +4,7 @@
 
 
 
-## 5 Key Features :
+## 6 Key Features :
 
 - **Toggle Theme Change Button**:When a user wants to change the theme on this website, they can press the theme button. The website will then switch between dark and light modes.
 
