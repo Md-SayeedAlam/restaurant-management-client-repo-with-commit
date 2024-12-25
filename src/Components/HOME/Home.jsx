@@ -66,7 +66,7 @@ const Home = () => {
 
 
 
-    <section className="py-16 bg-gray-100">
+    <section className="py-16 ">
       <div className="container mx-auto px-4 flex flex-col md:flex-row lg:flex-row-reverse items-center gap-8">
         <div className="md:w-1/2">
           <img

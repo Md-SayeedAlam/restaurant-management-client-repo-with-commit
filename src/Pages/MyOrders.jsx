@@ -64,7 +64,7 @@ const MyOrders = () => {
                         if (data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your equipments has been deleted.",
+                                text: "Your Purchased Food has been deleted.",
                                 icon: "success"
                             });
 
@@ -110,7 +110,7 @@ const MyOrders = () => {
             Buying Date & Time
           </th>
           <th className="px-2 py-1 text-center text-xs font-semibold border border-gray-200">
-            Details
+            Delete
           </th>
         </tr>
       </thead>
@@ -130,7 +130,7 @@ const MyOrders = () => {
                 className="w-8 h-8 rounded-full object-cover mx-auto"
               />
             </td>
-            <td className="px-2 py-1 text-xs border text-center border-gray-200 break-words">
+            <td className="px-1 py-1 text-xs border text-center border-gray-200 break-words">
               {item.itemName}
             </td>
             <td className="px-2 py-1 text-xs border border-gray-200 text-center">
@@ -139,14 +139,14 @@ const MyOrders = () => {
             <td className="px-2 py-1 text-xs border text-center border-gray-200 break-words">
               {item.name}
             </td>
-            <td className="px-2 py-1 text-xs border text-center border-gray-200 break-words">
+            <td className="px-0 py-1 text-xs border text-center border-gray-200 break-words">
               {item.date}
               
             </td>
             <td className="px-2 py-1 text-xs border border-gray-200">
               <div className="flex justify-center">
                 <Link >
-                  <button  onClick={()=>handleDelete(item._id)} className="btn btn-xxs  bg-red-200 text-[10px]">
+                  <button  onClick={()=>handleDelete(item._id)} className="lg:btn lg:bg-red-200 btn-xxs bg-red-200 text-[10px]">
                     Delete
                   </button>
                 </Link>

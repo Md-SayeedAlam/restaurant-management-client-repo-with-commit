@@ -221,7 +221,7 @@ const UpdatedFood = () => {
           <div className=" md:flex mb-8">
             <div className="form-control md:w-1/2  lg:w-1/2 w-full">
               <label className="label">
-                <span className="label-text">Price</span>
+                <span className="label-text">Price $</span>
               </label>
   
               <label className="input-group">
