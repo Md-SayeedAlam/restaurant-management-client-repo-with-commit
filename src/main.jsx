@@ -60,12 +60,12 @@ const router = createBrowserRouter([
         path:'/foods/:id',
         // element:<PrivateRoute><FoodCardDetails></FoodCardDetails></PrivateRoute>,
         element:<FoodCardDetails></FoodCardDetails>,
-        loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
+        // loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
       },
       {
         path:'/foodPurchase/:id',
         element:<PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
+        // loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
         
       },
       {
@@ -76,17 +76,17 @@ const router = createBrowserRouter([
       {
         path:'/myFoods/:email',
         element:<PrivateRoute><MyFoods></MyFoods></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/api/foods?email=${params.email}`)
+        // loader:({params})=>fetch(`http://localhost:5000/api/foods?email=${params.email}`)
       },
       {
         path:'/myOrders/:email',
         element:<PrivateRoute><MyOrders></MyOrders></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/api/purchases?email=${params.email}`)
+        // loader:({params})=>fetch(`http://localhost:5000/api/purchases?email=${params.email}`)
       },
       {
         path:'/update/:id',
         element:<PrivateRoute><UpdatedFood></UpdatedFood></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
+        // loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
         
       },
       

@@ -2,24 +2,44 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../Components/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
-import moment from 'moment';
-import axios from 'axios';
+// import moment from 'moment';
+// import axios from 'axios';
 import useAxiosSecure from '../Components/Hooks/useAxiosSecure';
 
 const MyOrders = () => {
     const {user}= useContext(AuthContext)
-    
+    console.log(user.email)
     // const myFoods = useLoaderData();
+    // console.log(myFoods)
     const params = useParams()
   //  console.log(params.email)
     const [items,setItems] = useState([]);
+
     console.log(items)
+
     const axiosSecure = useAxiosSecure()
-    useEffect(()=>{
-      // axios.get(`http://localhost:5000/api/purchases?email=${user.email}`,{withCredentials:true})
-      axiosSecure.get(`/api/purchases?email=${params.email}`)
-      .then(res=>setItems(res.data))
-    },[params.email])
+
+    // useEffect(()=>{
+    //   // axios.get(`http://localhost:5000/api/purchases?email=${user.email}`,{withCredentials:true})
+
+    //   axiosSecure.get(`/api/purchases?email=${user.email}`)
+
+    //   .then(res=>setItems(res.data))
+
+    // },[user.email])
+
+
+    useEffect(() => {
+      if (user?.email) {
+        axiosSecure.get(`/api/purchases?email=${user.email}`)
+          .then(res => setItems(res.data));
+      }
+    }, [user?.email]);
+
+
+
+
+
 
 
     const handleDelete=(id)=>{
@@ -65,7 +85,7 @@ const MyOrders = () => {
 
     return (
         <div className="flex flex-col gap-4 justify-center items-center mt-6 bg-base-200 p-3">
-  
+          <h2 className='text-3xl text-center'>My Orders</h2>
  {/* added responsive classes in this table */}
   <div className="w-full ">
     <table className="table-auto w-full border border-gray-200">

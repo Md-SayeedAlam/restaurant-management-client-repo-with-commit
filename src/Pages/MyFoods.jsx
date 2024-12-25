@@ -23,7 +23,7 @@ const MyFoods = () => {
 
     return (
         <div className="flex flex-col gap-4 justify-center items-center mt-6 bg-base-200 p-3">
-  
+          <h2 className='text-3xl text-center'>My Foods</h2>
  {/* added responsive classes in this table */}
   <div className="w-full ">
     <table className="table-auto w-full border border-gray-200">

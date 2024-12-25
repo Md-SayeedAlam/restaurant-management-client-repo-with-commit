@@ -10,57 +10,57 @@ const {user} = useContext(AuthContext)
 
   const images = [
     {
-      src: "https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=1024x1024&w=is&k=20&c=QPHFTWoscwMSXOEGKoAKOjlCnMGszppFBrqQHdy4EGc=",
-      
+      src: "https://images.pexels.com/photos/70746/strawberries-red-fruit-royalty-free-70746.jpeg?auto=compress&cs=tinysrgb&w=600",
+       width: "100%",
       description: "Delicious",
     },
     {
-      src: "https://media.istockphoto.com/id/2032134580/photo/fast-food-lunch-or-dinner-on-table-at-restaurant-people-eating-for-nutrition-and-wellness.jpg?s=1024x1024&w=is&k=20&c=mX-JVQ5pmtFGF4IjRNjtj8r6J6nYuq4G4qKTX_x6gks=",
+      src: "https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=600",
      
       description: "Mojadar",
     },
     {
-      src: "https://media.istockphoto.com/id/2032134580/photo/fast-food-lunch-or-dinner-on-table-at-restaurant-people-eating-for-nutrition-and-wellness.jpg?s=1024x1024&w=is&k=20&c=mX-JVQ5pmtFGF4IjRNjtj8r6J6nYuq4G4qKTX_x6gks=",
+      src: "https://images.pexels.com/photos/760281/pexels-photo-760281.jpeg?auto=compress&cs=tinysrgb&w=600",
       
       description: "Mojadar",
     },
     {
-      src: "https://media.istockphoto.com/id/2032134580/photo/fast-food-lunch-or-dinner-on-table-at-restaurant-people-eating-for-nutrition-and-wellness.jpg?s=1024x1024&w=is&k=20&c=mX-JVQ5pmtFGF4IjRNjtj8r6J6nYuq4G4qKTX_x6gks=",
+      src: "https://images.pexels.com/photos/1352270/pexels-photo-1352270.jpeg?auto=compress&cs=tinysrgb&w=600",
      
       description: "Mojadar",
     },
     {
-      src: "https://media.istockphoto.com/id/2032134580/photo/fast-food-lunch-or-dinner-on-table-at-restaurant-people-eating-for-nutrition-and-wellness.jpg?s=1024x1024&w=is&k=20&c=mX-JVQ5pmtFGF4IjRNjtj8r6J6nYuq4G4qKTX_x6gks=",
+      src: "https://images.pexels.com/photos/140831/pexels-photo-140831.jpeg?auto=compress&cs=tinysrgb&w=600",
       
       description: "Mojadar",
     },
     {
-      src: "https://media.istockphoto.com/id/2032134580/photo/fast-food-lunch-or-dinner-on-table-at-restaurant-people-eating-for-nutrition-and-wellness.jpg?s=1024x1024&w=is&k=20&c=mX-JVQ5pmtFGF4IjRNjtj8r6J6nYuq4G4qKTX_x6gks=",
+      src: "https://images.pexels.com/photos/533325/pexels-photo-533325.jpeg?auto=compress&cs=tinysrgb&w=600",
       
       description: "Mojadar",
     },
     {
-      src: "https://media.istockphoto.com/id/2032134580/photo/fast-food-lunch-or-dinner-on-table-at-restaurant-people-eating-for-nutrition-and-wellness.jpg?s=1024x1024&w=is&k=20&c=mX-JVQ5pmtFGF4IjRNjtj8r6J6nYuq4G4qKTX_x6gks=",
+      src: "https://images.pexels.com/photos/2494648/pexels-photo-2494648.jpeg?auto=compress&cs=tinysrgb&w=600",
     
       description: "Mojadar",
     },
     {
-      src: "https://media.istockphoto.com/id/2032134580/photo/fast-food-lunch-or-dinner-on-table-at-restaurant-people-eating-for-nutrition-and-wellness.jpg?s=1024x1024&w=is&k=20&c=mX-JVQ5pmtFGF4IjRNjtj8r6J6nYuq4G4qKTX_x6gks=",
+      src: "https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg?auto=compress&cs=tinysrgb&w=600",
       
       description: "Mojadar",
     },
     {
-      src: "https://media.istockphoto.com/id/2032134580/photo/fast-food-lunch-or-dinner-on-table-at-restaurant-people-eating-for-nutrition-and-wellness.jpg?s=1024x1024&w=is&k=20&c=mX-JVQ5pmtFGF4IjRNjtj8r6J6nYuq4G4qKTX_x6gks=",
+      src: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=600",
       
       description: "Mojadar",
     },
     {
-      src: "https://media.istockphoto.com/id/2032134580/photo/fast-food-lunch-or-dinner-on-table-at-restaurant-people-eating-for-nutrition-and-wellness.jpg?s=1024x1024&w=is&k=20&c=mX-JVQ5pmtFGF4IjRNjtj8r6J6nYuq4G4qKTX_x6gks=",
+      src: "https://images.pexels.com/photos/365459/pexels-photo-365459.jpeg?auto=compress&cs=tinysrgb&w=600",
       
       description: "Mojadar",
     },
     {
-      src: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "https://images.pexels.com/photos/209206/pexels-photo-209206.jpeg?auto=compress&cs=tinysrgb&w=600https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
      
       description: "Mojadar halua ruti",
     },

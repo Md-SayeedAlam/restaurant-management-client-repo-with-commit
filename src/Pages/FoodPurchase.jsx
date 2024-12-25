@@ -14,7 +14,8 @@ const FoodPurchase = () => {
     const [foods,setFoods] = useState([])
     
     const {_id,itemName,quantity,price,photo,email} = foods;
-    
+   
+   
     
     const quantityNmb = parseInt(quantity)
     // const [quantity, setQuantity] = useState("");
@@ -34,7 +35,7 @@ const FoodPurchase = () => {
         e.preventDefault()
         const form = e.target;
         const name = form.displayName.value;
-        // const email= form.email.value;
+        const email= form.email.value;
         const quantity = form.quantity.value;
         const value = parseInt(quantity);
         const price = form.price.value;
@@ -71,7 +72,7 @@ const FoodPurchase = () => {
 
 
 
-        if (user?.email === email) {
+        if (user?.email === foods.email) {
             Swal.fire({
               title: "Error",
               text: "Sorry,Owner and Buyer person is same.",
