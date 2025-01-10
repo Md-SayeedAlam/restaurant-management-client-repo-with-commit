@@ -22,6 +22,14 @@ const Navbar = () => {
       <li>
       <NavLink to='/gallery'>Gallery</NavLink>
       </li>
+
+      <li>
+      <NavLink to='/contact'>Contact</NavLink>
+      </li>
+
+      <li>
+      <NavLink to='/owner'>Owner</NavLink>
+      </li>
     </>
   );
 
@@ -34,7 +42,7 @@ const Navbar = () => {
 
   return (
 
-    <div className="navbar bg-base-200 sticky top-0 z-50">
+    <div className="navbar bg-base-200 sticky top-0 z-10">
       <Tooltip anchorSelect=".my-anchor-element" place="top">
         Click It For Change Theme
       </Tooltip>

@@ -17,7 +17,8 @@ const AddFoodItem = () => {
     const name = form.displayName.value;
     const email= form.email.value;
     const quantity = form.quantity.value;
-    const price = form.price.value;
+    const price = parseFloat(form.price.value);
+    console.log(typeof price)
     const origin = form.origin.value;
     const category = form.category.value;
     const description = form.description.value;

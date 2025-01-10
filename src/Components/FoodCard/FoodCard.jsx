@@ -27,14 +27,14 @@ const FoodCard = ({ food }) => {
       </figure>
       <div className="card-body ">
         <h2 className="card-title font-bold">{itemName}</h2>
-        <p className="font-semibold text-gray-400">
+        {/* <p className="font-semibold text-gray-400">
           <span className="font-semibold text-gray-600">Item Name</span>:{" "}
           {itemName}
-        </p>
-        <p className="font-medium text-gray-400">
+        </p> */}
+        {/* <p className="font-medium text-gray-400">
           <span className="font-semibold text-gray-600">Category</span> :
           {category}{" "}
-        </p>
+        </p> */}
         <p className="font-medium text-gray-400">
           <span className="font-semibold text-gray-600">Price:</span> {price}{" "}
         </p>
@@ -44,16 +44,16 @@ const FoodCard = ({ food }) => {
           {description.slice(0, 100)}...
         </p>
 
-        <p className="font-medium text-gray-400">
+        {/* <p className="font-medium text-gray-400">
           <span className="font-semibold text-gray-600">
             Available Quantity :{" "}
           </span>{" "}
           {quantity}
-        </p>
-        <p className="font-medium text-gray-400">
+        </p> */}
+        {/* <p className="font-medium text-gray-400">
           <span className="font-semibold text-gray-600">Origin : </span>{" "}
           {origin}
-        </p>
+        </p> */}
         <div className="card-actions justify-center">
           <Link to={`/foods/${_id}`}>
             <button className="btn btn-neutral bg-amber-400 text-white">View Details</button>

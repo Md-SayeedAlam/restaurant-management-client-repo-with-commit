@@ -34,7 +34,7 @@ const Home = () => {
         
 
 
-        <section className="py-16  mb-5">
+        <section className="py-10 mt-5">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2">
           <img
@@ -54,12 +54,45 @@ const Home = () => {
             Our chefs are passionate about blending traditional recipes with modern flavors, bringing
             you a taste you’ll never forget. Join us and savor the love for food and community.
           </p>
-          <button className="mt-6 px-6 py-3 bg-amber-400 text-white font-semibold rounded-lg">
+          {/* <button className="mt-6 px-6 py-3 bg-amber-400 text-white font-semibold rounded-lg">
             Learn More
-          </button>
+          </button> */}
         </div>
       </div>
     </section>
+
+
+
+
+    <section className="py-10">
+  <div className="container mx-auto px-4 text-center">
+    <h2 className="text-4xl font-bold mb-8">What Our Customers Say</h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="p-6 bg-white rounded-lg shadow-md">
+        <p className="italic text-gray-700 mb-4">
+          "Absolutely incredible! The flavors were out of this world, and the service was impeccable. I’ll definitely be coming back!"
+        </p>
+        <h4 className="font-semibold text-lg">- Emily R.</h4>
+      </div>
+      <div className="p-6 bg-white rounded-lg shadow-md">
+        <p className="italic text-gray-700 mb-4">
+          "The best dining experience I’ve had in years. The chef's fusion dishes are a masterpiece. Highly recommended!"
+        </p>
+        <h4 className="font-semibold text-lg">- Michael T.</h4>
+      </div>
+      <div className="p-6 bg-white rounded-lg shadow-md">
+        <p className="italic text-gray-700 mb-4">
+          "From the moment we walked in, everything was perfect. The atmosphere, the food, the hospitality—pure magic!"
+        </p>
+        <h4 className="font-semibold text-lg">- Sarah K.</h4>
+      </div>
+    </div>
+    {/* <button className="mt-10 px-6 py-3 bg-amber-400 text-white font-semibold rounded-lg">
+      Read More Reviews
+    </button> */}
+  </div>
+</section>
+
 
 
 

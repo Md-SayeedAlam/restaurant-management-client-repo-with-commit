@@ -8,6 +8,7 @@ const AllFoods = () => {
             }, []);
   const [foods, setFoods] = useState([]);
   const [search, setSearch] = useState("");
+  const [sort,setSort] = useState('')
  
 
   
@@ -16,7 +17,7 @@ const AllFoods = () => {
     const foodsItem = async () => {
       try {
         const response = await fetch(
-          `https://restaurent-management-server-one.vercel.app/foods?search=${search}`,
+          `https://restaurent-management-server-one.vercel.app/foods?search=${search}&sort=${sort}`,
           {
             method: "GET",
             headers: {
@@ -36,7 +37,7 @@ const AllFoods = () => {
     };
 
     foodsItem();
-  }, [search]);
+  }, [search,sort]);
 
 
   return (
@@ -60,7 +61,8 @@ const AllFoods = () => {
         </div>
       </div>
 
-      <div className="mt-10 mb-10 w-full lg:w-96 ml-0 lg:ml-[420px]">
+     <div className="flex flex-col lg:flex-row gap-5  mt-10 mb-10 mx-8 lg:mx-10  ">
+     <div className="w-full lg:w-1/2">
         <label className="input input-bordered flex items-center gap-2">
           <input
             onChange={(e) => setSearch(e.target.value)}
@@ -72,6 +74,24 @@ const AllFoods = () => {
           <button  className="btn btn-xs bg-amber-400">Search</button>
         </label>
       </div>
+
+
+        <div className="w-full lg:w-1/2">
+          <select
+          onChange={e=>setSort(e.target.value)}
+            name="category"
+             id="category" 
+             className="border p-[11px] rounded-md pr-[148px] lg:pr-[400px]"
+            >
+            <option value="">Sort By Price</option>
+            <option value="dsc">Descending Order</option>
+            <option value="asc">Ascending Order</option>
+          </select>
+        </div>
+     </div>
+
+
+
 
       <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4 mb-5">
         {foods.map((food, idx) => (

@@ -87,76 +87,84 @@ const MyOrders = () => {
 
 
     return (
-        <div className="flex flex-col gap-4 justify-center items-center mt-6 bg-base-200 p-3">
+        <div className="flex flex-col gap-4 justify-center items-center mt-6 bg-base-200 p-3 ">
           <h2 className='text-3xl text-center'>My Orders</h2>
  {/* added responsive classes in this table */}
-  <div className="w-full ">
+  <div className="w-full min-h-screen">
     <table className="table-auto w-full border border-gray-200">
       <thead>
         <tr className="">
-          <th className="px-2 py-1 text-center text-xs font-semibold border border-gray-200">
+          <th className="px-1 py-1 text-center text-xs font-semibold border border-gray-200">
             No:
           </th>
-          <th className="px-2 py-1 text-center text-xs font-semibold border border-gray-200">
+          <th className="px-1 py-1 text-center text-xs font-semibold border border-gray-200">
             Photo
           </th>
-          <th className="px-2 py-1 text-center text-xs font-semibold border border-gray-200">
+          <th className="px-1 py-1 text-center text-xs font-semibold border border-gray-200">
             Item Name
           </th>
-          <th className="px-2 py-1 text-center text-xs font-semibold border border-gray-200">
+          <th className="px-1 py-1 text-center text-xs font-semibold border border-gray-200">
             Price
           </th>
-          <th className="px-2 py-1 text-center text-xs font-semibold border border-gray-200">
+          <th className="px-1 py-1 text-center text-xs font-semibold border border-gray-200">
             Food Owner
           </th>
-          <th className="px-2 py-1 text-center text-xs font-semibold border border-gray-200">
+          <th className="px-1 py-1 text-center text-xs font-semibold border border-gray-200">
             Buying Date & Time
           </th>
-          <th className="px-2 py-1 text-center text-xs font-semibold border border-gray-200">
+          <th className="px-1 py-1 text-center text-xs font-semibold border border-gray-200">
             Delete
           </th>
         </tr>
       </thead>
       <tbody>
-        {items.map((item, index) => (
-          <tr
-            key={item._id}
-            className=""
-          >
-            <td className="px-2 py-1 text-xs border border-gray-200 text-center">
-              {index + 1}
-            </td>
-            <td className="px-2 py-1 border border-gray-200">
-              <img
-                src={item.photo}
-                alt={item.itemName}
-                className="w-8 h-8 rounded-full object-cover mx-auto"
-              />
-            </td>
-            <td className="px-1 py-1 text-xs border text-center border-gray-200 break-words">
-              {item.itemName}
-            </td>
-            <td className="px-2 py-1 text-xs border border-gray-200 text-center">
-              ${item.price}
-            </td>
-            <td className="px-2 py-1 text-xs border text-center border-gray-200 break-words">
-              {item.name}
-            </td>
-            <td className="px-0 py-1 text-xs border text-center border-gray-200 break-words">
-              {item.date}
-              
-            </td>
-            <td className="px-2 py-1 text-xs border border-gray-200">
-              <div className="flex justify-center">
-                <Link >
-                  <button  onClick={()=>handleDelete(item._id)} className="lg:btn lg:bg-red-200 btn-xxs bg-red-200 text-[10px]">
-                    Delete
-                  </button>
-                </Link>
-              </div>
-            </td>
-          </tr>
-        ))}
+      {
+  items && items.length > 0 ? (
+    items.map((item, index) => (
+      <tr key={item._id} className="">
+        <td className="px-0 py-1 text-xs border border-gray-200 text-center">
+          {index + 1}
+        </td>
+        <td className="px-0 py-1 border border-gray-200">
+          <img
+            src={item.photo}
+            alt={item.itemName}
+            className="w-8 h-8 rounded-full object-cover mx-auto"
+          />
+        </td>
+        <td className="px-1 py-1 text-xs border text-center border-gray-200 break-words">
+          {item.itemName}
+        </td>
+        <td className="px-1 py-1 text-xs border border-gray-200 text-center">
+          ${item.price}
+        </td>
+        <td className="px-1 py-1 text-xs border text-center border-gray-200 break-words">
+          {item.name}
+        </td>
+        <td className="px-1 py-1 text-xs border text-center border-gray-200 break-words">
+          {item.date}
+        </td>
+        <td className="px-1 py-1 text-xs border border-gray-200">
+          <div className="flex justify-center">
+            <button
+              onClick={() => handleDelete(item._id)}
+              className="lg:btn lg:bg-red-200 btn-xxs bg-red-200 text-[10px]"
+            >
+              Delete
+            </button>
+          </div>
+        </td>
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="7" className="text-center text-red-500 py-4">
+        No Orders
+      </td>
+    </tr>
+  )
+}
+
       </tbody>
     </table>
   </div>

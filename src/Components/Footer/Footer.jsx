@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
 
 const Footer = () => {
@@ -8,10 +9,10 @@ const Footer = () => {
         Click It For Go To The Website
       </Tooltip>
   <nav className="grid grid-flow-col gap-4">
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Owner</a>
-    <a className="link link-hover">Location</a>
+    <p className="">About us</p>
+    <Link to='/contact' className="link link-hover">Contact</Link>
+    <Link to='/owner' className="link link-hover">Owner</Link>
+    <p className="">Location</p>
   </nav>
   <nav>
     <div className="grid grid-flow-col gap-4">

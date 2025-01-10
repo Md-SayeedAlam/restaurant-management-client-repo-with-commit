@@ -23,6 +23,8 @@ import Gallery from './Pages/Gallery.jsx';
 import MyFoods from './Pages/MyFoods.jsx';
 import UpdatedFood from './Pages/UpdatedFood.jsx';
 import MyOrders from './Pages/MyOrders.jsx';
+import Contact from './Pages/Contact.jsx';
+import Owner from './Pages/Owner.jsx';
 
 
 const router = createBrowserRouter([
@@ -71,6 +73,16 @@ const router = createBrowserRouter([
       {
         path:'/gallery',
         element:<Gallery></Gallery>
+        
+      },
+      {
+        path:'/contact',
+        element:<Contact></Contact>
+        
+      },
+      {
+        path:'/owner',
+        element:<Owner></Owner>
         
       },
       {

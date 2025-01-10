@@ -13,7 +13,7 @@ const PrivateRoute = ({children}) => {
     
     if (loading) {
         return (
-            <div className="flex justify-center items-center h-[200px]">
+            <div className="flex justify-center items-center min-h-screen">
                 <Lottie animationData={lottieLoading} />
                 {/* <span className="loading loading-spinner size-20 text-accent"></span> */}
                 <h2 className='text-green-600 font-bold text-5xl'>Loading</h2>
