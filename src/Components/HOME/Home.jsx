@@ -21,9 +21,9 @@ const Home = () => {
         <div>
             <Banner></Banner>
 
-            <div className='grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-3 gap-4 mb-5'>
+            <div className='grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4 mb-5'>
             {
-                foods.slice(0, 6).map((food,idx)=><FoodCard key={idx} food={food}></FoodCard>)
+                foods.map((food,idx)=><FoodCard key={idx} food={food}></FoodCard>)
             }
         </div>
 
