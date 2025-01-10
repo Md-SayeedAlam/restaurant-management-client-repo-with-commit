@@ -34,11 +34,11 @@ const Navbar = () => {
 
   return (
 
-    <div className="navbar bg-base-200">
+    <div className="navbar bg-base-200 sticky top-0 z-50">
       <Tooltip anchorSelect=".my-anchor-element" place="top">
         Click It For Change Theme
       </Tooltip>
-      <div className="navbar-start">
+      <div className="navbar-start px-0 lg:px-3">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -64,7 +64,7 @@ const Navbar = () => {
           </ul>
         </div>
         <img src={logo} className="w-10 rounded-full" alt="" />
-        <a className=" btn-sm lg:btn lg:btn-ghost  lg:text-xl text-sm"><span className="text-amber-500">Nova</span> Restaurant</a>
+        <Link to='/' className=" btn-sm lg:btn lg:btn-ghost  lg:text-xl text-sm"><span className="text-amber-500">Nova</span> Restaurant</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -102,7 +102,7 @@ const Navbar = () => {
     </div>
 
 
-    <div className="">
+    <div className="px-0 lg:px-3">
         <Link to=''>
         <button 
         onClick={handleSignOut} 
