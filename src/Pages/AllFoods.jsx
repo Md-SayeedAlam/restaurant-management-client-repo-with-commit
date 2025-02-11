@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import allFood from "../../public/all food.jpeg";
 import FoodCard from "../Components/FoodCard/FoodCard";
+import { AuthContext } from "../Components/AuthProvider/AuthProvider";
+import Lottie from "lottie-react";
+import lottieLoading from '../assets/lottie/loading.json'
 // import { useLoaderData } from 'react-router-dom';
 const AllFoods = () => {
   useEffect(() => {
@@ -9,7 +12,7 @@ const AllFoods = () => {
   const [foods, setFoods] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
-
+   const {loading} = useContext(AuthContext);
   useEffect(() => {
     const foodsItem = async () => {
       try {
@@ -34,6 +37,18 @@ const AllFoods = () => {
 
     foodsItem();
   }, [search, sort]);
+
+
+  if (loading) {
+    return (
+        <div className="flex justify-center items-center min-h-screen">
+            <Lottie animationData={lottieLoading} />
+          
+            <h2 className='text-green-600 font-bold text-5xl'>Loading</h2>
+        </div>
+    );
+}
+
 
   return (
     <>
